@@ -1,16 +1,13 @@
 package com.zhbo.study.controller;
 
-import com.zhbo.study.dao.UserDao;
 import com.zhbo.study.domain.UserModel;
 import com.zhbo.study.result.PageParam;
 import com.zhbo.study.result.PageResult;
-import com.zhbo.study.result.ResultVo;
 import com.zhbo.study.service.UserService;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     /**

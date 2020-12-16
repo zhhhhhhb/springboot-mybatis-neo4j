@@ -20,6 +20,9 @@ public interface UserDao {
 
     UserModel getById(@Param("id") Long id);
 
+    UserModel getByNameAndAge(@Param("name") String name,
+                              @Param("age") Integer age);
+
     int add(@Param("model") UserModel model);
 
     int update(@Param("model") UserModel model);

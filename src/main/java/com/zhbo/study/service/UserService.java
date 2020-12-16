@@ -33,4 +33,7 @@ public interface UserService {
 
     String testMethod(@RequestParam("name") String name,
                       @RequestParam("age") Long age);
+
+    UserModel getByNameAndAge(@RequestParam("name") String name,
+                              @RequestParam("age") Integer age);
 }

@@ -65,4 +65,10 @@ public class UserServiceImpl implements UserService {
         }
         return "success";
     }
+
+    @Override
+    public UserModel getByNameAndAge(String name, Integer age) {
+        System.out.println("进来查询");
+        return userDao.getByNameAndAge(name, age);
+    }
 }

@@ -80,4 +80,10 @@ public class UserController {
                       @RequestParam("age") Optional<Long> age) {
         return userService.testMethod(name.orElse(null),age.orElse(null));
     }
+
+    @GetMapping("/getByNameAndAge")
+    public UserModel getByNameAndAge(@RequestParam("name") String name,
+                                     @RequestParam("age") Integer age) {
+        return userService.getByNameAndAge(name,age);
+    }
 }

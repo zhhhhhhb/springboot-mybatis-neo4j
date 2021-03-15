@@ -1,9 +1,11 @@
 package com.zhbo.study.service;
 
+import com.github.pagehelper.PageInfo;
 import com.zhbo.study.domain.UserModel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,8 @@ public interface UserService {
 
     List<UserModel> getAll();
 
+    PageInfo<UserModel> getPage(int pageNum, int pageSize);
+
     UserModel getById(@Param("id") Long id);
 
     int add(@Param("model") UserModel model);
@@ -36,4 +40,5 @@ public interface UserService {
 
     UserModel getByNameAndAge(@RequestParam("name") String name,
                               @RequestParam("age") Integer age);
+    void getUserIpAddress(HttpServletRequest request);
 }

@@ -1,5 +1,6 @@
 package com.zhbo.study.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.zhbo.study.domain.UserModel;
 import com.zhbo.study.result.PageParam;
 import com.zhbo.study.result.PageResult;
@@ -47,6 +48,13 @@ public class UserController {
     public List<UserModel> getAll() {
         return userService.getAll();
     }
+
+    @GetMapping("/getPage")
+    public PageInfo<UserModel> getPage(@RequestParam("pageNum") int pageNum,
+                                       @RequestParam("pageSize") int pageSize) {
+        return userService.getPage(pageNum, pageSize);
+    }
+
 
     /**
      * 根据id查询（含节点关系）

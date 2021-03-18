@@ -6,12 +6,8 @@ import com.zhbo.study.dao.UserDao;
 import com.zhbo.study.domain.UserModel;
 import com.zhbo.study.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONArray;
-import net.minidev.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import sun.rmi.runtime.Log;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -89,7 +85,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void getUserIpAddress(HttpServletRequest request) {
+    public String getUserIpAddress(HttpServletRequest request) {
         String ip = null;
 
         //X-Forwarded-For：Squid 服务代理
@@ -136,6 +132,7 @@ public class UserServiceImpl implements UserService {
         if (ip == null || ip.length() == 0 || unknown.equalsIgnoreCase(ipAddresses)) {
             ip = request.getRemoteAddr();
         }
-         log.info(ip);
+        System.out.println(ip);
+        return ip;
     }
 }

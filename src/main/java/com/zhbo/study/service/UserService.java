@@ -40,5 +40,5 @@ public interface UserService {
 
     UserModel getByNameAndAge(@RequestParam("name") String name,
                               @RequestParam("age") Integer age);
-    void getUserIpAddress(HttpServletRequest request);
+    String getUserIpAddress(HttpServletRequest request);
 }

@@ -5,10 +5,12 @@ import com.zhbo.study.domain.UserModel;
 import com.zhbo.study.result.PageParam;
 import com.zhbo.study.result.PageResult;
 import com.zhbo.study.service.UserService;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +29,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/getPage")
-    public PageResult getPage(@RequestBody PageParam pageParam) {
+    public PageResult getPage(@RequestBody PageParam pageParam) throws JSONException {
         int pageStart = pageParam.getPageStart();
         int pageIndex = pageParam.getPageIndex();
         int pageSize = pageParam.getPageSize();
@@ -93,5 +95,10 @@ public class UserController {
     public UserModel getByNameAndAge(@RequestParam("name") String name,
                                      @RequestParam("age") Integer age) {
         return userService.getByNameAndAge(name,age);
+    }
+
+    @GetMapping("/getUserIpAddress")
+    public String getRemoteIp(HttpServletRequest request) {
+        return userService.getUserIpAddress(request);
     }
 }

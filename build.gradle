@@ -52,4 +52,7 @@ dependencies {
 
     compile "redis.clients:jedis"
     compile "org.springframework.kafka:spring-kafka"
+
+    compile "org.apache.poi:poi:3.17"
+    compile "org.apache.poi:poi-ooxml:3.17"
 }

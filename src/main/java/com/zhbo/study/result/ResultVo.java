@@ -57,4 +57,7 @@ public class ResultVo {
     public ResultVo fail(Object data) {
         return new ResultVo("fail", "400", data);
     }
+
+    public ResultVo() {
+    }
 }
